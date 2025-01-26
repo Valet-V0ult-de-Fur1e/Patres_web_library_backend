@@ -5,6 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 
 class UserModel(BaseModel):
+    __tablename__ = 'users'
     id: Mapped[int_pk]
     email: Mapped[str_uniq]
     first_name: Mapped[str]
