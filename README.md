@@ -12,5 +12,4 @@
 ```
   docker run -p 8000:80 fastapi_app
 ```
-4. Переходим на запущенный сервер :
-<a href="http://localhost:8000/docs">
+4. Переходим на запущенный сервер : <a href="http://localhost:8000/docs">ссылка</a>
