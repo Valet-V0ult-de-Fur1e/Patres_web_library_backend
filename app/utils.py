@@ -14,3 +14,7 @@ def get_server_data():
 
 def get_auth_data():
     return {"secret_key": server_settings.SECRET_KEY, "algorithm": server_settings.ALGORITHM}
+
+
+def get_server_book_limit():
+    return server_settings.BOOK_LIMIT

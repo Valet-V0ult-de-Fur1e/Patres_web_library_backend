@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.utils import get_server_data
 from app.routes.auth.router import router as router_auth
 from app.routes.authors.router import router as router_authors
+from app.routes.books.router import router as router_books
 
 host, port = get_server_data()
 app = FastAPI()
@@ -18,3 +19,4 @@ app.add_middleware(
 
 app.include_router(router_auth)
 app.include_router(router_authors)
+app.include_router(router_books)

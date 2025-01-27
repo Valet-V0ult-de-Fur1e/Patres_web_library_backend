@@ -21,4 +21,5 @@ class FastApiConfig(ConfigBase):
     PORT: int
     SECRET_KEY: str
     ALGORITHM: str
+    BOOK_LIMIT: int
     model_config = SettingsConfigDict(env_prefix="FA_")

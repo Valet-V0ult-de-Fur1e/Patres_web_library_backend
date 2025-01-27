@@ -2,7 +2,6 @@ from datetime import datetime
 from pydantic import BaseModel, field_validator
 
 class SBookAdd(BaseModel):
-    book_id: int
     title: str
     publication_date: datetime
     count_copies: int

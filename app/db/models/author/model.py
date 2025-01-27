@@ -11,5 +11,5 @@ class AuthorModel(BaseModel):
     last_name: Mapped[str]
     biography: Mapped[str]
     birth_date: Mapped[datetime]
-    books = relationship("BookModel", secondary="book_author_association", back_populates='authors')
+    books = relationship("BookModel", secondary="book_author_associations", back_populates='authors')
     extend_existing = True

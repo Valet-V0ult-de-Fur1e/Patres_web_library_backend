@@ -5,6 +5,16 @@ from pydantic import BaseModel, Field
 from app.routes.books.get_book_info.schema import BookBase
 
 
+class BookBase(BaseModel):
+    book_id: int
+    title: str
+    publication_date: datetime
+    count_copies: int
+
+    class Config:
+        orm_mode = True
+
+
 class AuthorBase(BaseModel):
     author_id: int
     first_name: str = Field(..., min_length=1, max_length=50, description="Имя, от 1 до 50 символов")

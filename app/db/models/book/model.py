@@ -11,5 +11,5 @@ class BookModel(BaseModel):
     title: Mapped[str]
     publication_date: Mapped[datetime]
     count_copies: Mapped[int] = mapped_column(default=0)
-    authors = relationship("AuthorModel", secondary="book_author_association", back_populates='books')
+    authors = relationship("AuthorModel", secondary="book_author_associations", back_populates='books')
     extend_existing = True
