@@ -3,6 +3,7 @@ from app.db.models.book_author_association.interface import BookAuthorAssociatio
 from app.db.models.user.model import UserModel
 from app.routes.exceptions import *
 from app.routes.utils import get_current_user
+from app.routes.exceptions import ForbiddenException
 
 router = APIRouter()
 
@@ -14,4 +15,5 @@ async def delete_book_author_association(book_id: int, author_id: int, user_data
             return {"message": f"Автор с ID больше не создатель книги с ID {book_id} удалена!"}
         else:
             return {"message": "Ошибка при удалении связи!"}
+    return ForbiddenException
 

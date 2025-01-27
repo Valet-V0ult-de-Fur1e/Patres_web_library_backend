@@ -4,7 +4,7 @@ from app.db.models.user.model import UserModel
 from app.routes.authors.update_author_info.schema import SAuthorUpdate
 from app.routes.exceptions import *
 from app.routes.utils import get_current_user
-
+from app.routes.exceptions import ForbiddenException
 router = APIRouter()
 
 @router.put("/update")
@@ -19,4 +19,5 @@ async def update_author(author_new_data: SAuthorUpdate, user_data: UserModel = D
             return {"message": "Данные автора успешно обновлены!", "author": author_new_data}
         else:
             return {"message": "Ошибка при обновлении данных автора!"}
+    return ForbiddenException
 

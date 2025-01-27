@@ -9,7 +9,7 @@ from alembic import context
 
 from app.db.db import DATABASE_URL
 from app.db.base_table_model import BaseModel
-from app.db.models import UserModel, AuthorModel, BookModel, BookAuthorAssociationInterFace
+from app.db.models import UserModel, AuthorModel, BookModel, BookAuthorAssociationModel, BookUserAssociationModel
 
 config = context.config
 config.set_main_option("sqlalchemy.url", DATABASE_URL)

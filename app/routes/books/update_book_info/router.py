@@ -4,6 +4,7 @@ from app.db.models.user.model import UserModel
 from app.routes.books.update_book_info.schema import SBookUpdate
 from app.routes.exceptions import *
 from app.routes.utils import get_current_user
+from app.routes.exceptions import ForbiddenException
 
 router = APIRouter()
 
@@ -19,4 +20,5 @@ async def update_book(book_new_data: SBookUpdate, user_data: UserModel = Depends
             return {"message": "Данные книги успешно обновлены!", "book": book_new_data}
         else:
             return {"message": "Ошибка при обновлении данных книги!"}
+    return ForbiddenException
 

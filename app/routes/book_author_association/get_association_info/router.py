@@ -1,9 +1,8 @@
 from fastapi import APIRouter, Depends
 from app.db.models.book_author_association.interface import BookAuthorAssociationInterFace
-from app.routes.book_author_association.books.get_association_info.rb import RBBookAuthorAssociation
-from app.routes.book_author_association.books.get_association_info.schema import SBookAuthorAssociationGet
+from app.routes.book_author_association.get_association_info.rb import RBBookAuthorAssociation
+from app.routes.book_author_association.get_association_info.schema import SBookAuthorAssociationGet
 from app.routes.exceptions import *
-
 router = APIRouter()
 
 @router.get("/get_all")

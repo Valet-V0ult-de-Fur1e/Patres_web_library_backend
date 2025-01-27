@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from app.db.models.book_user_association.interface import BookUserAssociationInterFace
 from app.db.models.user.model import UserModel
-from app.routes.book_user_association.books.add_new_association.schema import SBookUserAssociationAdd
+from app.routes.book_user_association.add_new_association.schema import SBookUserAssociationAdd
 from app.routes.exceptions import *
 from app.routes.utils import get_current_user
 from app.utils import get_server_book_limit
