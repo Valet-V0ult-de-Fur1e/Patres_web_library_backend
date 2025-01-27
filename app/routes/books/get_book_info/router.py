@@ -13,7 +13,7 @@ async def get_all_books() -> list[SBookGet]:
 
 @router.get("/get_info/{book_id}")
 async def get_book_by_id(book_id: int) -> SBookGet | dict:
-    result = await BookInterFace.find_full_data(id=book_id)
+    result : SBookGet = await BookInterFace.find_full_data(id=book_id)
     if result is None:
         return {'message': f'Книга с ID {book_id} не найдена!'}
     return result

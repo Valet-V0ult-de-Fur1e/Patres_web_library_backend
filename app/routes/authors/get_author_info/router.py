@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends
 from app.db.models.author.interface import AuthorInterFace
-from app.routes.authors.get_author_info.rb import RBAuthor
 from app.routes.authors.get_author_info.schema import SAuthorGet
 from app.routes.exceptions import *
 
