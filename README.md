@@ -24,4 +24,4 @@
 ```
   uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
-4. Переходим на запущенный сервер : <a href="http://localhost:8000/docs">ссылка</a>
+7. Переход на запущенный <a href="http://localhost:8000/docs">сервер</a>
