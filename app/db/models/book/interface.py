@@ -1,8 +1,9 @@
 from app.db.base_table_interface import BaseInterface
-from app.db.models.book.model import BookModel
 from app.db import async_session_maker
 from sqlalchemy import delete
 from sqlalchemy.future import select
+
+from app.db.models.book.model import BookModel
 
 class BookInterFace(BaseInterface):
     model = BookModel
@@ -28,7 +29,7 @@ class BookInterFace(BaseInterface):
                 if not book_to_delete:
                     return None
                 await session.execute(
-                    delete(cls.model).filter_by(id=book_id)
+                    delete(cls.model).where(cls.model.id==book_id)
                 )
                 await session.commit()
                 return book_id

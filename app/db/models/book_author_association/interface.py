@@ -27,7 +27,7 @@ class BookAuthorAssociationInterFace(BaseInterface):
                 if not association_to_delete:
                     return None
                 await session.execute(
-                    delete(cls.model).filter_by(id=author_id)
+                    delete(cls.model).where(cls.model.author_id==author_id).where(cls.model.book_id==book_id)
                 )
                 await session.commit()
                 return True
@@ -37,7 +37,7 @@ class BookAuthorAssociationInterFace(BaseInterface):
         async with async_session_maker() as session:
             async with session.begin():
                 await session.execute(
-                    delete(cls.model).where(author_id=author_id)
+                    delete(cls.model).where(cls.model.author_id==author_id)
                 )
                 await session.commit()
                 return True
@@ -47,7 +47,7 @@ class BookAuthorAssociationInterFace(BaseInterface):
         async with async_session_maker() as session:
             async with session.begin():
                 await session.execute(
-                    delete(cls.model).where(book_id=book_id)
+                    delete(cls.model).where(cls.model.book_id==book_id)
                 )
                 await session.commit()
                 return True

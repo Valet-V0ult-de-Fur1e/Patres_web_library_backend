@@ -28,7 +28,7 @@ class AuthorInterFace(BaseInterface):
                 if not author_to_delete:
                     return None
                 await session.execute(
-                    delete(cls.model).filter_by(id=author_id)
+                    delete(cls.model).where(cls.model.id==author_id)
                 )
                 await session.commit()
                 return author_id

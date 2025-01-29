@@ -11,7 +11,7 @@ router = APIRouter()
 @router.post("/add/")
 async def add_new_new_book_author_association(new_book_author_association: SBookAuthorAssociationAdd, user_data: UserModel = Depends(get_current_user)) -> dict:
     if user_data.is_admin:
-        check = await BookAuthorAssociationInterFace.add_new_book(**new_book_author_association.model_dump())
+        check = await BookAuthorAssociationInterFace.add_new_book_author_association(**new_book_author_association.model_dump())
         if check:
             return {"message": "Автор и книга связаны"}
         else:

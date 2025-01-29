@@ -7,4 +7,3 @@ class BookAuthorAssociationModel(BaseModel):
     __tablename__ = 'book_author_associations'
     author_id = Column('author_id', ForeignKey('authors.id'), primary_key=True)
     book_id =  Column('book_id', ForeignKey('books.id'), primary_key=True)
-    
