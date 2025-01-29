@@ -4,12 +4,24 @@
 ```
   docker-compose up
 ```
-2. Запуск сборки контейнера сервера
+2. Создание вертуальной среды
 ```
-  docker build -t fastapi_app .
+  python -m venv .venv
 ```
-3. Запуск контейнера сервера
+3. Запуск вертуальной среды
 ```
-  docker run -p 8000:80 fastapi_app
+  .venv/Scripts/activate
+```
+4. Установка библиотек
+```
+  pip install --no-cache-dir -r requirements.txt
+```
+5. Запуск миграций
+```
+  alembic upgrade head
+```
+6. Запуск сервера
+```
+  uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 4. Переходим на запущенный сервер : <a href="http://localhost:8000/docs">ссылка</a>
