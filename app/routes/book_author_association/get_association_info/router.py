@@ -1,3 +1,4 @@
+import math
 from fastapi import APIRouter, Depends
 from app.db.models.book_author_association.interface import BookAuthorAssociationInterFace
 from app.routes.book_author_association.get_association_info.rb import RBBookAuthorAssociation
@@ -8,6 +9,21 @@ router = APIRouter()
 @router.get("/get_all")
 async def get_all_associations(request_body: RBBookAuthorAssociation = Depends()) -> list[SBookAuthorAssociationGet]:
     return await BookAuthorAssociationInterFace.find_all(**request_body.to_dict())
+
+
+@router.post("/get_all_pogination/{page}/{size}")
+async def get_all_associations(page: int, size: int, request_body: RBBookAuthorAssociation = Depends()):
+    associations_data = await BookAuthorAssociationInterFace.find_all(**request_body.to_dict())
+    offset_min = page * size
+    offset_max = (page + 1) * size
+    response = associations_data[offset_min:offset_max] + [
+        {
+            "page": page,
+            "size": size,
+            "total": math.ceil(len(associations_data) / size) - 1,
+        }
+    ]
+    return response
 
 
 @router.get("/get_by_filter")
