@@ -5,6 +5,7 @@ from app.routes.exceptions import *
 
 router = APIRouter()
 
+
 @router.get("/get_all")
 async def get_all_authors():
     out_data = await AuthorInterFace.find_all()

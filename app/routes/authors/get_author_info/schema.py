@@ -6,7 +6,7 @@ from app.routes.books.get_book_info.schema import BookBase
 
 
 class BookBase(BaseModel):
-    book_id: int
+    id: int
     title: str
     publication_date: datetime
     count_copies: int
@@ -16,7 +16,7 @@ class BookBase(BaseModel):
 
 
 class AuthorBase(BaseModel):
-    author_id: int
+    id: int
     first_name: str = Field(..., min_length=1, max_length=50, description="Имя, от 1 до 50 символов")
     last_name: str = Field(..., min_length=1, max_length=50, description="Фамилия, от 1 до 50 символов")
     biography: str = Field(..., min_length=0, max_length=2500, description="Биография, до 50 символов")
@@ -24,6 +24,7 @@ class AuthorBase(BaseModel):
 
     class Config:
         orm_mode = True
+        from_attributes = True
 
 
 class SAuthorGet(AuthorBase):
